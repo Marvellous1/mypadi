@@ -1,0 +1,65 @@
+body {
+    background-color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+    color : black;
+}
+
+.site-content {
+    min-height: 100vh;
+} 
+
+h2, .board-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #233539;
+}
+
+#content {
+    background-color: #F4F8F9;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: medium;
+    color: #323C47;
+}
+
+.section-title {
+    font-style: 18px;
+}
+
+.card-desc {
+    font-size: 14px;
+}
+
+small, .card-desc {
+    color: gray;
+}
+
+
+.brand-logo {
+        font-weight: 900;
+    font-size: 36px;
+    color: #458FF6;
+    margin-left: 15px;
+
+}
+/* 
+.card-panel,  .btn {
+    border-radius: 15px;
+} */
+
+.btn.card-btn {
+    width: 100%
+}
+
+.routes {
+    font-family: 'Poppins', sans-serif;
+}
+.test {
+    font-family: 'Poppins', sans-serif;
+}
+.routes:hover {
+    color: grey;
+
+}
