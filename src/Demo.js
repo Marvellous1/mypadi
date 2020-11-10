@@ -92,7 +92,7 @@ class App extends Component {
               <div class="card-columns ">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="section-title">Card title that</h5>
+                    <h5 class="journal-title">Card title that</h5>
                     <p class="card-text card-desc mt-n2 mb-4">
                       This is a longer card with supporting text
                     </p>
@@ -191,7 +191,7 @@ class App extends Component {
                 </div>
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="section-title">Card title that</h5>
+                    <h5 class="journal-title">Card title that</h5>
                     <p class="card-text card-desc mt-n2 mb-4">
                       This is a longer card with supporting text
                     </p>
@@ -290,7 +290,7 @@ class App extends Component {
                 </div>
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="section-title">Card title that</h5>
+                    <h5 class="journal-title">Card title that</h5>
                     <p class="card-text card-desc mt-n2 mb-4">
                       This is a longer card with supporting text
                     </p>

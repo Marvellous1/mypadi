@@ -36,11 +36,11 @@ export const deleteBoard = (board) => {
         dispatch({ type: "DELETE_BOARD", board });
       })
       .then(() => {
-        firestore.collection("boards").doc(board.boardId).collection("sections").get()
+        firestore.collection("boards").doc(board.boardId).collection("journals").get()
           .then((snapshot) => {
-            snapshot.forEach((section) => {
-              // console.log('sec', section.id)
-              firestore.collection("sections").doc(section.id).delete();
+            snapshot.forEach((journal) => {
+              // console.log('sec', journal.id)
+              firestore.collection("journals").doc(journal.id).delete();
             });
           });
       })
@@ -62,11 +62,11 @@ export const editBoard = (board) => {
         dispatch({ type: "EDIT_BOARD", board });
       })
       .then(() => {
-        firestore.collection("boards").doc(board.boardId).collection("sections").get()
+        firestore.collection("boards").doc(board.boardId).collection("journals").get()
           .then((snapshot) => {
-            snapshot.forEach((section) => {
-              // console.log('sec', section.id)
-              firestore.collection("sections").doc(section.id).update({
+            snapshot.forEach((journal) => {
+              // console.log('sec', journal.id)
+              firestore.collection("journals").doc(journal.id).update({
                 name: board.name,
                 description: board.description,
                 lastEdited: new Date(),

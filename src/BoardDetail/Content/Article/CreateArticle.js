@@ -37,7 +37,7 @@ class CreateArticle extends Component {
      console.log('pos', this.state)
     this.props.createArticle(this.state)
     this.setState({display: 'none'})
-    // this.props.history.push('/'+ this.state.BoardID + '/sections' )
+    // this.props.history.push('/'+ this.state.BoardID + '/journals' )
     }
 
     toggleForm = () => {

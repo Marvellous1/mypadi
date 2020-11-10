@@ -1,0 +1,66 @@
+
+.note-card {
+    position: relative;
+    box-shadow: none;
+    transition: all 0.7s;
+}
+
+
+.note-card.hovered {
+    background-color:  #DADADA;
+}
+
+
+.view-note-btn {
+    border-radius: 5px;
+    background-color:#7f63f4 ;
+    color:#fff;
+    width: 180px;
+    height: 50px;
+}
+.edit-note-btn {
+    border-radius: 5px;
+    color:#7f63f4 ;
+    background-color:#fff;
+    width: 180px;
+    height: 50px;
+}
+
+
+.title-input, .content-input{
+    background-color: #Fff;
+    border: none;
+    border-radius: 7px;
+    padding: 20px 10px;
+}
+
+.content-input {
+    min-height: 200px;
+}
+.title-input:focus{
+    background-color: #Fff;
+    border: none;
+
+}
+
+.format-icon {
+    font-size: 20px;
+    border: 1px solid transparent;
+    background-color: transparent;
+    padding: 3px 5px 4px 5px;
+    margin-right: 2px;
+}
+
+
+
+.format-icon:not(.active):hover {
+    border-color: #7f63f44d;
+    background-color: #7f63f41a;
+}
+
+.format-icon.active {
+    background-color: #DED7FF;
+    color: #7F63F4;
+    border-color: transparent;
+}
+

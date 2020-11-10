@@ -1,11 +1,11 @@
 body {
-    background-color: #f5f5f5;
     font-family: 'Roboto', sans-serif;
     color : black;
 }
 
 .site-content {
     min-height: 100vh;
+    background-color: #f5f5f5;
 } 
 
 h2, .board-title {
@@ -24,7 +24,7 @@ h2, .board-title {
     color: #323C47;
 }
 
-.section-title {
+.journal-title {
     font-style: 18px;
 }
 
@@ -44,22 +44,17 @@ small, .card-desc {
     margin-left: 15px;
 
 }
-/* 
-.card-panel,  .btn {
-    border-radius: 15px;
-} */
 
 .btn.card-btn {
     width: 100%
 }
 
-.routes {
-    font-family: 'Poppins', sans-serif;
+p{
+    color: #868686;
 }
-.test {
-    font-family: 'Poppins', sans-serif;
-}
-.routes:hover {
-    color: grey;
 
+h5 {
+    font-size: 18px;
+    font-weight: 400;
 }
+

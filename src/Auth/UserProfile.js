@@ -69,7 +69,7 @@ class UserProfile extends Component {
                       </form>
                     </div>
                     <div className="col-lg-6 offset-md-1 text-center mt-5 pt-5">
-                      <div className="image-section">
+                      <div className="image-journal">
                         <div
                           style={{
                             width: "124px",

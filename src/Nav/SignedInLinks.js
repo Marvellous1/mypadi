@@ -28,67 +28,105 @@ class SignedInLinks extends Component {
   }
 
   render() {
-    const { auth, boards, content } = this.props;
+    const { auth, boards, content, dName } = this.props;
     const boardUrl = boards && boards.length > 0 && boards[0].boardId;
     const { activeClass } = this.state;
     return (
       <div>
-        <nav class="navbar navbar-light navbar-lg py-3">
+        <nav class="navbar navbar-light navbar-fixed navbar-lg py-3">
           <Link to="/dashboard" class="navbar-brad brand-logo">
-            myPadi
+            <img
+              src="/assets/logo.svg"
+              alt="Logo"
+              className="d-none d-md-block"
+            />
+            <img src="/assets/MLogo.svg" alt="Logo" className="d-md-none" />
           </Link>
-          <div className="d-flex align-items-center">
+          <a
+            data-toggle="collapse"
+            href="#"
+            data-target=".collapse"
+            role="button"
+            class="d-md-none text-primary "
+          >
+            <i class="fa fa-bars fa-lg"></i>
+          </a>
+
+          <div className=" d-none d-md-flex align-items-center">
             <CreateBoard
               btn_title="+ Add Board"
               btn_style=" add-board-btn btn-outline-primary mr-5"
             />
             <Link
-              to="/profile"
+              to="/"
               className="avatar mr-3 d-flex align-items-center justify-content-center"
             >
-              <span>MA</span>
+              <span>{dName.toUpperCase()}</span>
             </Link>
             <SignOut />
           </div>
         </nav>
-        <div className="row no-gutters site-content">
-          <div className="col-lg-2 sidebar">
-            <ul class="nv side-menu mt-5" id="side-menu">
-              <li class={activeClass === "dashboard" && "active"}>
-                <Link to="/dashboard">
-                  <i class="fa fa-dashboard" aria-hidden="true"></i>
-                  Dashboard
-                </Link>
-              </li>
-              <li class={activeClass === "board" && "active"}>
-                <Link to={`board/${boardUrl}`}>
-                  <i class="fa fa-th" aria-hidden="true"></i>
-                  My Board
-                </Link>
-              </li>
-              <li>
-                <Link to="">
-                  <i class="fa fa-user-circle" aria-hidden="true"></i>
-                  Profile
-                </Link>
-              </li>
-              <li class={activeClass === "support" && "active"}>
-                <Link to="/support">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  Support
-                </Link>
-              </li>
-            </ul>
+        <div class="container-fluid px-0 h-100">
+          <div className="row min-vh-100 collapse show no-gutters d-flex h-100 position-relative site-content ">
+            <div className="col-2 w-sidebar navbar-collapse collapse d-none d-md-flex sidebar">
+              <div className="  h-100 w-sidebar">
+                <div className="d-flex d-md-none align-items-center">
+                  <Link
+                    to="/"
+                    className="avatar mr-3 d-flex align-items-center justify-content-center"
+                  >
+                    <span>{dName.toUpperCase()}</span>
+                  </Link>
+                  <CreateBoard
+                    btn_title="+ Add Board"
+                    btn_style=" add-board-btn btn-outline-primary mr-5"
+                  />
+                </div>
+
+                <ul class="nv side-menu mt-5 " id="side-menu">
+                  <li class={activeClass === "dashboard" && "active"}>
+                    <Link to="/dashboard">
+                      <i class="fa fa-dashboard" aria-hidden="true"></i>
+                      Dashboard
+                    </Link>
+                  </li>
+                  <li class={activeClass === "board" && "active"}>
+                    <Link to={`/board/${boardUrl}`}>
+                      <i class="fa fa-th" aria-hidden="true"></i>
+                      My Board
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="">
+                      <i class="fa fa-user-circle" aria-hidden="true"></i>
+                      Profile
+                    </Link>
+                  </li>
+                  <li class={activeClass === "support" && "active"}>
+                    <Link to="/support">
+                      <i class="fa fa-envelope" aria-hidden="true"></i>
+                      Support
+                    </Link>
+                  </li>
+                </ul>
+                <div className="d-md-none">
+                  {" "}
+                  <SignOut />
+                </div>
+              </div>
+            </div>
+            <div className="col site-content  py-5" id="content">
+              {content}
+            </div>
           </div>
-          <div className="col-lg-10  py-5" id="content">
-            {content}
-          </div>
-          <div className="py-4 text-center">
-            {" "}
-            <p class="footer-text">
-              ©Trafalgar PTY LTD 2020. All rights reserved
-            </p>
-          </div>
+        </div>{" "}
+        <div className="py-3 text-center loggedInFooter">
+          <p>
+            ©Padi 2020. Made With ❤️ by{" "}
+            <a href="twitter.com/Vello_Codes" className="text-primary">
+              Vello
+            </a>
+          </p>
         </div>
       </div>
     );

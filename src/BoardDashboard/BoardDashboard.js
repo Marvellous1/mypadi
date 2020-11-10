@@ -5,18 +5,19 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import BoardList from "./BoardList";
 import CreateBoard from "./CreateBoard";
+import "./Dashboard.css"
 
 class BoardDashboard extends Component {
   render() {
     const { boards, auth } = this.props;
+    const MyBoards = boards && boards.filter((item) => item.authorId == auth.uid);
     if (!auth.uid) return <Redirect to="/signIn" />;
-    console.log("fff", boards);
     return (
       <div className="container">
         <div className="row mb-5 pb-4">
           <div className="col-md-4 mb-3">
             <div className="card card-col">
-              <div className="card-body d-flex new-board">
+              <div className="card-body d-flex d-md-block d-lg-flex new-board">
                 <div>
                   <i
                     class="fa fa-plus react-icons mr-5 mt-3"
@@ -35,7 +36,7 @@ class BoardDashboard extends Component {
           </div>
           <div className="col-md-4 mb-3">
             <div className="card card-col">
-              <div className="card-body d-flex current-package">
+              <div className="card-body d-flex d-md-block d-lg-flex current-package">
                 <div>
                   <i
                     class="fa fa-th react-icons mr-5 mt-3"
@@ -44,14 +45,14 @@ class BoardDashboard extends Component {
                 </div>
                 <div className="text-center">
                   <div className="card-subtext">Total Boards</div>
-                  <div className="card-number ">{boards && boards.length}</div>
+                  <div className="card-number ">{MyBoards && MyBoards.length}</div>
                 </div>
               </div>
             </div>
           </div>
           <div className="col-md-4 mb-3">
             <div className="card card-col">
-              <div className="card-body d-flex delivered-packages">
+              <div className="card-body d-flex d-md-block d-lg-flex delivered-packages">
                 <div>
                   <i
                     class="fa fa-plus react-icons mr-5 mt-3"
@@ -72,10 +73,10 @@ class BoardDashboard extends Component {
           </div>
         </div>
         <div className="package-list bg-white p-3">
-          {boards && boards.length > 0 ? (
+          {MyBoards && MyBoards.length > 0 ? (
             <div>
-              <h2 className="mb-4 blue ">My Boards</h2>
-              <BoardList boards={boards} auth={auth} />
+              <h2 className="mb-4 blu ">My Boards</h2>
+              <BoardList boards={MyBoards} auth={auth} />
             </div>
           ) : (
             <div className= "text-center p-5">

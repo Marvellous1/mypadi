@@ -1,58 +1,66 @@
 import React, { Component } from "react";
-import HomeImage from "../images/home-image.svg";
-import SearchIcon from "../images/search.svg";
+import Format from "../images/Format.svg";
+import HomeImage from "../images/home-image.png";
+import SearchIcon from "../images/Search.svg";
 import PharmIcon from "../images/pharmacy.svg";
-import LeadingImg from "../images/leading-healthcare.svg";
-import MobileApp from "../images/mobile-apps.svg";
+import LeadingImg from "../images/leading-img.png";
+import MobileApp from "../images/mobile-apps.png";
 import ClientImg from "../images/client.svg";
-import { Link } from "react-router-dom"
+import Secured from "../images/Secured.svg";
+import Limits from "../images/Limits.svg";
+import Tags from "../images/Tags.svg";
+
+import Access from "../images/Access.svg";
+import { Link, Redirect } from "react-router-dom"
+import { connect } from "react-redux";
+
 
 class Home extends Component {
   render() {
+    if (this.props.auth.uid) return (<Redirect to ="/dashboard" />)
+    
     return (
       <div>
         <div class="home d-flex align-items-center">
           <div class="container">
             <div class="row d-flex align-items-center">
-              <div class="col-md-6">
-                <h1 class="mb-2">Virtual healthcare for you</h1>
+              <div class="col-md-6 mb-5 text-center text-md-left order-2 order-sm-1">
+                <h1 class="mb-2">Writing Just Became <br className="d-none d-md-block"/> Fun</h1>
                 <h6 class="mb-4">
-                  Trafalgar provides progressive, and affordable healthcare,
-                  accessible on mobile and online for everyone
+                Writing is a way of expressing yourself. Express
+                yourself using Pad, organise yourself and get 
+                a feeling like never before 
                 </h6>
                 <button class="btn blue">
-                  <a href="/find-a-doctor.html">Consult today</a>
+                  <a href="/find-a-doctor.html">Get Started</a>
                 </button>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-6 mb-5 order-1 order-sm-2">
                 <img src={HomeImage} class="img-fluid" alt="" />
               </div>
             </div>
           </div>
         </div>
 
-        <div class="section services">
+        <div class="section services" id="features">
           <div class="container">
             <div class="custom-container">
               <div class="title text-center">
-                <h2>Our Services</h2>
+                <h2>Top Features</h2>
                 <hr />
                 <p class="mb-5">
-                  We provide to you the best choiches for you. Adjust it to your
-                  health needs and make sure your undergo treatment <br />
-                  with our highly qualified doctors you can consult with us
-                  which type of service is suitable for your health
+                All our features were tailored to serve you better.
                 </p>
               </div>
               <div class="row">
                 <div class="col-md-4">
                   <div class="card">
                     <div class="card-body px-4 py-5">
-                      <img src={SearchIcon} class="mb-1" alt="search" />
-                      <h3>Search doctor</h3>
+                      <img src={Format} class="mb-1" alt="format" />
+                      <h3>Smart Formatting</h3>
                       <p>
-                        Choose your doctor from thousands of specialist,
-                        general, and trusted hospitals
+                      Use our highly customizable format
+                      tools to style your journals
                       </p>
                     </div>
                   </div>
@@ -60,11 +68,10 @@ class Home extends Component {
                 <div class="col-md-4">
                   <div class="card">
                     <div class="card-body px-4 py-5">
-                      <img src={PharmIcon} class="mb-1" alt="search" />
-                      <h3>Online Pharmacy</h3>
+                      <img src={Access} class="mb-1" alt="access" />
+                      <h3>Access Anywhere</h3>
                       <p>
-                        Choose your doctor from thousands of specialist,
-                        general, and trusted hospitals
+                      Write Once, view on any device anywhere in the world
                       </p>
                     </div>
                   </div>
@@ -72,11 +79,10 @@ class Home extends Component {
                 <div class="col-md-4">
                   <div class="card">
                     <div class="card-body px-4 py-5">
-                      <img src={PharmIcon} class="mb-1" alt="search" />
-                      <h3>Online Pharmacy</h3>
+                      <img src={Tags} class="mb-1" alt="tags" />
+                      <h3>Tags and Labels</h3>
                       <p>
-                        Choose your doctor from thousands of specialist,
-                        general, and trusted hospitals
+                      Use Tags and labels to easily sort your journals
                       </p>
                     </div>
                   </div>
@@ -88,10 +94,9 @@ class Home extends Component {
                   <div class="card">
                     <div class="card-body px-4 py-5">
                       <img src={SearchIcon} class="mb-1" alt="search" />
-                      <h3>Search doctor</h3>
+                      <h3>Search Notes</h3>
                       <p>
-                        Choose your doctor from thousands of specialist,
-                        general, and trusted hospitals
+                      Use our incorprated search bar to  easily find your journals
                       </p>
                     </div>
                   </div>
@@ -99,11 +104,11 @@ class Home extends Component {
                 <div class="col-md-4">
                   <div class="card">
                     <div class="card-body px-4 py-5">
-                      <img src={PharmIcon} class="mb-1" alt="search" />
-                      <h3>Online Pharmacy</h3>
+                      <img src={Secured} class="mb-1" alt="secured" />
+                      <h3>Secured Info</h3>
                       <p>
-                        Choose your doctor from thousands of specialist,
-                        general, and trusted hospitals
+                      Your journals are 100% secured in 
+                      our databse which cannot be easily accesed
                       </p>
                     </div>
                   </div>
@@ -111,11 +116,10 @@ class Home extends Component {
                 <div class="col-md-4">
                   <div class="card">
                     <div class="card-body px-4 py-5">
-                      <img src={PharmIcon} class="mb-1" alt="search" />
-                      <h3>Online Pharmacy</h3>
+                      <img src={Limits} class="mb-1" alt="limits" />
+                      <h3>No limits</h3>
                       <p>
-                        Choose your doctor from thousands of specialist,
-                        general, and trusted hospitals
+                      Write as many  journals you can possibly write. No charges, completely free 
                       </p>
                     </div>
                   </div>
@@ -125,7 +129,7 @@ class Home extends Component {
           </div>
         </div>
 
-        <div class="healthcare">
+        <div class="healthcare" id="mobile-app">
           <div class="container py-5">
             <div class="row d-flex align-items-center">
               <div class="col-md-6">
@@ -136,17 +140,14 @@ class Home extends Component {
                 />
               </div>
               <div class="col-md-5 offset-md-1 text-left">
-                <h3>Leading healthcare providers</h3>
+                <h3>Very Easy To 
+                Use</h3>
                 <hr class="" />
                 <div>
                   <p>
-                    Trafalgar provides progressive, and affordable healthcare,
-                    accessible on mobile and online for everyone. To us, it’s
-                    not just work. We take pride in the solutions we deliver
+                  Our website is created to be very easy to use. All you have to do is, register, create your board to get your categorize your journals and start writing
                   </p>
-                  <button class="blue-outline btn">
-                    <a href="/about.html">Learn More</a>
-                  </button>
+                    <a class="blue-outline btn" href="/signup">Learn More</a>
                 </div>
               </div>
             </div>
@@ -160,13 +161,9 @@ class Home extends Component {
               <hr class="" />
               <div>
                 <p>
-                  Trafalgar provides progressive, and affordable healthcare,
-                  accessible on mobile and online for everyone. To us, it’s not
-                  just work. We take pride in the solutions we deliver
+                Our mobile apps are on the way, We plan on bringing Padi very close to you, so you can write whenever you want. We will notice all our users immediately the app is ready. Get started now to get the update. 
                 </p>
-                <button class="blue-outline btn">
-                  <a href="/apps.html">Download</a>
-                </button>
+                <a class="blue-outline btn" href="/signup">Get Started</a>
               </div>
             </div>
             <div class="col-md-6">
@@ -278,7 +275,7 @@ class Home extends Component {
           </div>
         </div>
 
-        {/* <div class="section blog">
+        {/* <div class="journal blog">
           <div class="container">
             <div class="custom-container">
               <div class="title text-center">
@@ -343,4 +340,13 @@ class Home extends Component {
     );
   }
 }
-export default Home;
+
+
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth,
+  };
+};
+
+export default connect(mapStateToProps)(Home);
+

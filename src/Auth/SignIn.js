@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { signIn } from "../store/actions/authActions";
 import ErrorMessage from "../ErrorMessage";
 import { Redirect, Link } from "react-router-dom";
+import ForgotPassword from "./ForgotPassword";
 
 class SignIn extends Component {
   state = {
@@ -23,30 +24,45 @@ class SignIn extends Component {
     const { authError, auth } = this.props;
     if (auth.uid) return <Redirect to="/dashboard" />;
     return (
-      <div className="container">
+      <div className="container auth-bg">
         <div className="row ">
           <div className="col-lg-4"></div>
           <div className="col-lg-4">
             <div className="card">
               <div className="card-body">
                 <h2 className="mb-5 ">Sign In</h2>
-                <form  onSubmit = {this.handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
                   <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" class="form-control" id="email" onChange={this.handleChange} />
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      onChange={this.handleChange}
+                    />
                   </div>
                   <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" onChange={this.handleChange}/>
-                    <small class="float-right text-primary">
-                      Forgot Password
-                    </small>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password"
+                      onChange={this.handleChange}
+                    />
+                    <ForgotPassword />
                   </div>
                   <div class=" mt-4 mb-3">
-                    <h6 className="text-black">No account yet? <span><Link to = '/SignUp'> Sign Up Now </Link></span> </h6>                  
+                    <p className="text-black">
+                      No account yet?
+                      <span className="text-primary">
+                        <Link to="/SignUp"> Sign Up Now </Link>
+                      </span>
+                    </p>
                   </div>
-                  <ErrorMessage/>
-                  <button className="btn btn-primary float-right" type="submit">Sign In</button>
+                  <ErrorMessage />
+                  <button className="btn btn-primary float-right" type="submit">
+                    Sign In
+                  </button>
                 </form>
               </div>
             </div>

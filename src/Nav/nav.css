@@ -1,35 +1,15 @@
-.navbar, .sidebar {
+.navbar, .sidebar, .loggedInFooter {
     background-color: #FAFBFC;
 }
+
+
 
 .card {
     border-radius: 15px;
     box-shadow: 10px 40px 50px rgba(229, 233, 246, 0.4);
     border: 1px solid rgba(229, 233, 246, 0.7);
-    cursor: pointer;
 }
 
-.add-btn, .add-card {
-    background: repeating-linear-gradient(
-        45deg,
-        #f8f8fc,
-        #f1f2fa 5px,
-        #eff0f5 5px,
-        #eef0fd 10px
-      );
-    /* background-color: rgba(243, 242, 242, 0.7); */
-}
-
-.add-btn:hover, .add-card:hover {
-    background: repeating-linear-gradient(
-        45deg,
-        #f8f8fc,
-        #f1f2fa 2px,
-        #eff0f5 2px,
-        #eef0fd 5px
-      );
-    /* background-color: rgba(243, 242, 242, 0.7); */
-}
 
 .sidebar ul {
     list-style: none;
@@ -69,4 +49,43 @@
     height: 50px;
     font-weight: bold;
     /* font-size: 24px; */
+}
+
+
+.nav-link:hover{
+    border-bottom: 2px solid#007AFF;
+    transition: all 0.7s;
+  }
+
+
+  
+.w-sidebar {
+    width: 200px;
+    max-width: 200px;
+}
+
+.row.collapse {
+    margin-left: -200px;
+    left: 0;
+	transition: margin-left .15s linear;
+}
+
+.row.collapse.show {
+    margin-left: 0 !important;
+}
+
+.row.collapsing {
+    margin-left: -200px;
+    left: -0.05%;
+	transition: all .15s linear;
+}
+
+@media (max-width:768px) {
+
+    .row.collapse,
+    .row.collapsing {
+        margin-left: 0 !important;
+        left: 0 !important;
+        overflow: visible;
+    }
 }

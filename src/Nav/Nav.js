@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import {NavLink} from 'react-router-dom'
-
+import "./nav.css"
 import SignedOutLinks from "./SignedOutLinks";
 import SignedInLinks from "./SignedInLinks";
 
@@ -9,7 +9,8 @@ import { connect } from "react-redux";
 class Nav extends Component {
   render() {
     const { auth, children } = this.props;
-    const links = auth.uid ? <SignedInLinks content= {children}/> : <SignedOutLinks content= {children}/>;
+    console.log("a", auth.email);
+    const links = auth.uid ? <SignedInLinks content= {children}  dName={auth.email.substring(0, 2)}/> : <SignedOutLinks content= {children}/>;
     return (
       <div>
         {links}

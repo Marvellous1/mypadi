@@ -25,7 +25,7 @@ class SignUp extends Component {
     const { authError, auth } = this.props;
     if (auth.uid) return <Redirect to="/dashboard" />;
     return (
-      <div className="container">
+      <div className="container auth-bg">
         <div className="row ">
           <div className="col-lg-2"></div>
           <div className="col-lg-8">
@@ -81,7 +81,7 @@ class SignUp extends Component {
                   <div class=" mt-4 mb-3 col-12">
                     <h6 className="text-black">
                       Already a user?
-                      <span>
+                      <span className="text-primary">
                         <Link to="/SignIn"> Sign In </Link>
                       </span>
                     </h6>

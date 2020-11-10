@@ -11,7 +11,7 @@ class NoteDashboard extends Component {
   render() {
     const { auth, notes } = this.props;
     if (notes) {
-      const {id} = this.props.section;
+      const {id} = this.props.journal;
       if (!auth.uid) return <Redirect to="/signIn" />;
       return (
         <div>
@@ -27,9 +27,9 @@ class NoteDashboard extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   // console.log('xx', state.firestore)
-  // const id = ownProps.section.id
-  // const sections = state.firestore.data.sections
-  // const section = sections ? sections[id] : null
+  // const id = ownProps.journal.id
+  // const journals = state.firestore.data.journals
+  // const journal = journals ? journals[id] : null
   const notes = state.firestore.ordered.notes;
   return {
     notes: notes,
@@ -41,12 +41,12 @@ export default compose(
   connect(mapStateToProps),
   firestoreConnect((ownProps) => {
     const storeAs = "notes";
-    const Testid = ownProps.section.id;
-    // console.log('dd',ownProps.section)
+    const Testid = ownProps.journal.id;
+    // console.log('dd',ownProps.journal)
     return [
-      { collection: "sections" },
+      { collection: "journals" },
       {
-        collection: "sections",
+        collection: "journals",
         doc: Testid,
         subcollections: [{ collection: "notes" }],
         storeAs,

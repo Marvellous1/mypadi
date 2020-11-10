@@ -1,7 +1,7 @@
 export const createAssignment = (assignment) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
         const firestore = getFirestore();
-        firestore.collection('sections').doc(assignment.Sid).collection('assignments').add({
+        firestore.collection('journals').doc(assignment.Sid).collection('assignments').add({
             ...assignment,
             createdAt: new Date()
         }).then((docRef) => {
@@ -17,7 +17,7 @@ export const createAssignment = (assignment) => {
 export const deleteAssignment = (assignment) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
         const firestore = getFirestore();
-        firestore.collection('sections').doc(assignment.Sid).collection('assignments'
+        firestore.collection('journals').doc(assignment.Sid).collection('assignments'
         ).doc(assignment.id).delete().then(() => {
             dispatch({ type: 'DELETE_ASSIGNMENT', assignment})            
         }).catch((err) => {
@@ -30,7 +30,7 @@ export const deleteAssignment = (assignment) => {
 export const editAssignment = (assignment) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
         const firestore = getFirestore();
-        firestore.collection('sections').doc(assignment.Sid).collection('assignments'
+        firestore.collection('journals').doc(assignment.Sid).collection('assignments'
         ).doc(assignment.id).update({
             title: assignment.title,
             objective: assignment.objective

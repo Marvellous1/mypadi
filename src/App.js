@@ -9,22 +9,23 @@ import Nav from './Nav/Nav'
 import Home from './Pages/Home';
 import About from './Pages/About'
 import Contact from './Pages/Contact'
-import Demo2 from './Demo2'
 import SignIn from './Auth/SignIn';
 import SignUp from './Auth/SignUp';
 
 import BoardDashboard from './BoardDashboard/BoardDashboard';
 
-import SectionDashboard from './BoardDetail/Section/SectionDashboard';
-import CreateSection from './BoardDetail/Section/CreateSection';
+import JournalDashboard from './BoardDetail/Journal/JournalDashboard';
+import CreateJournal from './BoardDetail/Journal/CreateJournal';
 import CreateNote from './BoardDetail/Note/CreateNote';
 import NoteDashboard from './BoardDetail/Note/NoteDashboard';
 import ChooseContentType from './BoardDetail/Content/ChooseContentType';
 import CreateArticle from './BoardDetail/Content/Article/CreateArticle';
-import CreateAssignment from './BoardDetail/Assignment/CreateAssignment';
-import AssignmentDashboard from './BoardDetail/Assignment/AssignmentDashboard';
 import UserProfile from './Auth/UserProfile';
 import "./style.css"
+import ViewJournal from './BoardDetail/Journal/ViewJournal';
+import EditJournal from './BoardDetail/Journal/EditJournal';
+import Error from './Pages/Error';
+import ForgotPassword from './Auth/ForgotPassword';
 
 class App extends Component {
 
@@ -37,7 +38,7 @@ class App extends Component {
           <Route exact path = '/' component = {Home} />
           
           {/* <Route exact path = '/' component = {LandingPage} /> */}
-          <Route path = '/About' component = {About} />
+          <Route exact path = '/About' component = {About} />
           <Route path = '/Contact' component = {Contact} />
           <Route path = '/SignUp' component = {SignUp} />
           <Route path = '/SignIn' component = {SignIn} />
@@ -46,14 +47,18 @@ class App extends Component {
 
           <Route path = '/dashboard' component = {BoardDashboard} />
 
-          <Route path = '/board/:BoardID/' component = {SectionDashboard} />
+          <Route exact path = '/board/:BoardID/' component = {JournalDashboard} />
+          <Route exact path= '/board/:BoardID/new' component = {CreateJournal} />
 
-          <Route path = '/:BoardID/sections/section' component = {CreateSection} />
+        <Route exact path= '/:JournalID/view' component = {ViewJournal} />
+    <Route exact path= '/:JournalID/edit' component = {EditJournal} />
+
 
           <Route path = '/:Sid/note/create' component = {CreateNote} />
+
           <Route path = '/:Sid/note' component = {NoteDashboard} />
-          <Route path = '/test' component = {AssignmentDashboard} />
-          <Route path = '/content/article' component =  {CreateArticle} />
+
+          <Route component={Error}></Route>
         </Switch>
         </Nav>
       </div>     

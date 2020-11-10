@@ -3,7 +3,8 @@ import BoardSummary from "./BoardSummary";
 
 const BoardList = ({ boards, auth }) => {
   return (
-    <table class="table table-xs-responsive mb-3">
+    <div className="table-responsive">
+    <table class="table mb-3">
       <thead class="thead">
         <tr>
           <th scope="col">S/N</th>
@@ -18,7 +19,7 @@ const BoardList = ({ boards, auth }) => {
         boards.map((board, index) => {
           return <BoardSummary board={board} key={board.id} index={index} />;
         })}
-    </table>
+    </table></div>
   );
 };
 

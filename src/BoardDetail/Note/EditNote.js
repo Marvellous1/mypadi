@@ -54,7 +54,7 @@ class EditNote extends Component {
             <div>
                 <div style = {{display: 'inline'}}>
                     <i className="material-icons" onClick= {this.toggleForm} style = {{margin:'10px'}}>edit</i>
-                    <i className="material-icons" onClick= {this.deleteSection}>delete</i>
+                    <i className="material-icons" onClick= {this.deleteJournal}>delete</i>
                 </div> 
                 <div className = 'card grey lighten-3' >
                     <form onSubmit = {this.handleSubmit}  style = {{ display: this.state.display, padding: '10px'}}>

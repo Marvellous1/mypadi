@@ -14,7 +14,7 @@ class ErrorMessage extends Component {
             if (authError === 'The password is invalid or the user does not have a password.') {
                 return <div className = "red-text">Password is incorrect</div> 
             } else if (authError === 'There is no user record corresponding to this identifier. The user may have been deleted.') {
-                return <div className = "red-text">No User like that</div> 
+                return <div className = "red-text">There is no user record corresponding to this identifier</div> 
             } else if (authError === 'Too many unsuccessful login attempts. Please try again later.') {
                 return <div className = "red-text">Too many attempts. Try again in 5 minutes</div> 
             } else

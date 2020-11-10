@@ -4,7 +4,7 @@ class LandingPage extends Component {
   render() {
     return (
       <div >
-      <section className="slider">
+      <journal className="slider">
         <ul class="slides">
           <li>
             <img  alt='slides' src="https://lorempixel.com/580/250/nature/1" />   
@@ -35,7 +35,7 @@ class LandingPage extends Component {
             </div>
           </li>
         </ul>
-      </section>
+      </journal>
       <a class="waves-effect waves-light btn animated bounceInRight">button</a>
       <div class="fixed-action-btn">
         <a class="btn-floating btn-large red">
